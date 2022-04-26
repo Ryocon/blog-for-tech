@@ -15,8 +15,10 @@ Comments.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+},{
     sequelize,
     modelName: "comments"
+    
 }) 
 
 module.exports = Comments

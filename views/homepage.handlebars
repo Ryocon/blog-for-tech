@@ -1,0 +1,24 @@
+<div class="container">
+    {{#each posts}}
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{title}}
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+   {{content}}
+    </div>
+  </div>
+  <footer class="card-footer">
+  
+    <div  class="card-footer-item">{{user.userName}}</div>
+
+    <a href="/post/{{id}}" class="card-footer-item">Read More Nonsense</a>
+    
+    
+  </footer>
+</div>
+{{/each}}
+</div>
