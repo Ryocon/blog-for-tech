@@ -28,7 +28,7 @@ router.get('/post/:id', async (req,res)=>{
             include:[User]
         })
         if(onePost){
-            const post =(await onePost).get({plain:true})
+            const post = (await onePost).get({plain:true})
             console.log(post, 'does this work?')
            return res.render('singlePost',{post})
         }
@@ -42,6 +42,14 @@ router.get('/post/:id', async (req,res)=>{
 })
 
 // render log in
+router.get('/login', async (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/')
+        return
+    }
+
+    res.render('login')
+})
 
 // render sign up
 
