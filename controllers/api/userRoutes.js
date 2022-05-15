@@ -4,24 +4,31 @@ const { User } = require('../../models/')
 
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body)
+        console.log(req.body)
+        const userData = await User.create({
+            userName: req.body.username,
+            password: req.body.password
+        })
 
         req.session.save(() => {
             req.session.user_id = userData.id
+            req.session.userName = userData.userName
             req.session.logged_in = true
 
-            res.status(200).json(userData)
+            res.json(userData)
+            console.log(userData)
         }
         )
     } catch (err) {
         res.status(400).json(err)
+        console.log(err)
     }
 })
 
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { email: req.body.email}})
+        const userData = await User.findOne({ where: { userName: req.body.username}})
 
         if (!userData) {
             res

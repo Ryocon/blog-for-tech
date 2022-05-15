@@ -57,14 +57,22 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
+        {{#unless user_id}}
         <div class="buttons">
           <a class="button is-primary" href="/signUp">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light" href="/logIn">
+          <a class="button is-light" href="/login">
             Log in
           </a>
         </div>
+        {{else}}
+          <div class="buttons">
+          <a href='#' id="logout-link" class="button is-light">
+            Logout
+          </a>
+        </div>
+        {{/unless}}
       </div>
     </div>
   </div>
@@ -73,5 +81,7 @@
 
 {{!-- dynamic pages --}}
     {{{body}}}
+
+    <script src="/js/logout.js"></script>
 </body>
 </html>

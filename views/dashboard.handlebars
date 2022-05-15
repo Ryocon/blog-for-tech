@@ -1,0 +1,37 @@
+<div class="container">
+<div class="columns">
+  <div class="column is-1">
+  <p id="newPost"class=" title is-5 has-text-centered">Make a post?</p>
+<button id="new"class="button">New Post</button>
+</div>
+  <div class="column is-9">
+{{#if posts}}
+ {{#each posts}}
+<div class="card">
+  <header class="card-header delPost">
+    <p class="card-header-title">
+      {{title}}
+    </p>
+     <a class="" href="/dashboard/post/{{id}}"><span class="icon has-text-dark">
+  <i class="fa-solid fa-pen"></i>
+</span></a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      {{body}}
+    </div>
+  </div>
+  <footer class="card-footer ">
+  <div class="card-footer-item has-text-centered">
+     by {{user.username}}
+  </div>
+  </footer>
+</div>
+ {{/each}}
+{{else}}
+<div>You have no posts yet</div>
+{{/if}}
+</div>
+
+</div>
+</div>
